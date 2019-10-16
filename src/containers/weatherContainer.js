@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react'
 import {connect} from 'react-redux'
 import {requestWeather} from './../redux/weatherReducer'
+import {changeLocale} from './../redux/headerReducer'
 import WeatherData from './../components/WeatherData'
 import {compose} from 'redux'
 
 const WeatherContainer = (props) => {
-    console.log(props)
     const [isFetching, setFetching] = useState(true)
-
     useEffect(() => {
         setFetching(props.weather.isFetching)
     }, [props])
@@ -21,7 +20,7 @@ const WeatherContainer = (props) => {
     }
     return (
         <>
-            <WeatherData data={props.weather.data} />
+            <WeatherData data={props.data} />
         </>
     )
 }
